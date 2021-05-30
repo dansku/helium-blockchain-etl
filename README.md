@@ -45,6 +45,7 @@ docker run --net=host -e DATABASE_URL=postgresql://etl:etl123@127.0.0.1:5432/etl
 docker run -d --init \
   --name etl \
   --net=host \
+  --restart=always \
   --mount type=bind,source=$HOME/etldata,target=/var/data \
 	-e DATABASE_URL=postgresql://etl:etl123@127.0.0.1:5432/etl \
   helium/etl
