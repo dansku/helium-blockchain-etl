@@ -64,7 +64,7 @@ tail -f /root/etldata/log/console.log
 * Rebuild the container: `docker build -t helium/etl .`
 * Run migrations: ` docker run --net=host -e DATABASE_URL=postgresql://etl:etl123@127.0.0.1:5432/etl helium/etl migrations run`
 * Restart the docker container:
-* ```
+```
 docker run -d --init \
   --name etl \
   --net=host \
