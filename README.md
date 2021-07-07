@@ -1,3 +1,36 @@
+# helius etl non-docker (wip)
+
+* install https://github.com/helium/blockchain-etl
+* postgres 12 + postgis
+	* `sudo apt install postgis postgresql-12-postgis-3 postgis postgresql-12-postgis-3`
+* create db table and users
+	* `sudo -u postgres psql`
+	* `CREATE USER etl WITH PASSWORD 'etl';`
+	* `CREATE DATABASE etl;`
+* change psql to use password
+	* edit `vim /etc/postgresql/12/main/pg_hba.conf` to:
+```
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+
+#to 
+local   all             all                                     md5
+```
+
+### optional
+* increase ulimit
+	* `vim /etc/security/limits.conf` and change:
+	
+	```
+	soft nofile 400000
+	hard nofile 400000
+	```
+	
+## Load DB Dump
+`pg_restore -d etl -U etl -W -F folder/`
+
+---
+
 # helium etl server on docker (WIP)
 
 ## requirements
