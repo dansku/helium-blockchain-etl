@@ -25,9 +25,18 @@ local   all             all                                     md5
 	soft nofile 400000
 	hard nofile 400000
 	```
-	
+
+## Move psql data directory (in case of using external disk)
+`/var/lib/postgresql/12/main`
+
+or `SHOW data_director;`
+
+* stop database: `sudo systemctl stop postgresql`
+
 ## Load DB Dump
 `pg_restore -d etl -U etl -W -F folder/`
+
+
 
 ---
 
