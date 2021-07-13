@@ -34,7 +34,7 @@ or `SHOW data_director;`
 * stop database: `sudo systemctl stop postgresql`
 
 ## Load DB Dump
-`pg_restore -d etl -U etl -W -F folder/`
+`pg_restore -d etl -U etl -W -Fd folder/`
 
 
 
